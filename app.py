@@ -8,6 +8,16 @@ import requests
 import streamlit as st
 import pandas as pd
 
+# Hide Streamlit default menu & footer
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # GitHub release URLs
 MODEL_FILES = {
     "count_vectorizer.pkl": "https://github.com/Tha1kur/netflix-recommendation-system/releases/download/v1.0/count_vectorizer.pkl",
@@ -87,7 +97,25 @@ if st.button("Recommend Movies"):
         st.warning("No recommendations found.")
 
 st.markdown("---")
-st.markdown(
-    "<p style='text-align:center;color:gray;'>Netlo Movie Recommendation System</p>",
-    unsafe_allow_html=True
-)
+st.markdown("""
+<a href="https://github.com/Tha1kur/netflix-recommendation-system" target="_blank">
+    <div style="text-align:center; margin-top:20px;">
+        <button style="
+            padding:10px 20px;
+            border:none;
+            background:#000;
+            color:white;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+        ">
+            View Project on GitHub
+        </button>
+    </div>
+</a>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align:center; padding:10px; color:gray;">
+    © 2026 Netlo Movie Recommendation System | Built by Mavilon Productions  
+</div>
+""", unsafe_allow_html=True)
